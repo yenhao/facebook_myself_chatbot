@@ -90,5 +90,5 @@ print("Dump to txt")
 with open('./data/qa.txt', 'w') as fp:
     out_text = ''
     for q,a in qa_pair:
-        out_text += "{}\t{}\t{}\t{}\n".format(q[0],q[1],a[0],q[1])
+        out_text += "{}\t{}\t{}\t{}\n".format(q[0],q[1],a[0],a[1])
     fp.write(out_text)
