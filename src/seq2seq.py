@@ -132,12 +132,12 @@ def idsToSentence(ids, wList):
     return listOfResponses
 
 # Hyperparamters
-batchSize = 24
+batchSize = 48
 maxEncoderLength = 15
 maxDecoderLength = maxEncoderLength
 lstmUnits = 112
 embeddingDim = lstmUnits
-numLayersLSTM = 3
+numLayersLSTM = 4
 numIterations = 500000
 
 # Loading in all the data structures
@@ -155,21 +155,21 @@ else:
     with open("wordList.txt", "wb") as fp: 
         pickle.dump(wordList, fp)
 
-wordVectors = np.load('embeddingMatrix.npy')
+# wordVectors = np.load('embeddingMatrix.npy')
 vocabSize = len(wordList)
-wordVecDimensions = wordVectors.shape[1]
-
+# wordVecDimensions = wordVectors.shape[1]
 # Add two entries to the word vector matrix. One to represent padding tokens, 
 # and one to represent an end of sentence token
-padVector = np.zeros((1, wordVecDimensions), dtype='int32')
-EOSVector = np.ones((1, wordVecDimensions), dtype='int32')
-wordVectors = np.concatenate((wordVectors,padVector), axis=0)
-wordVectors = np.concatenate((wordVectors,EOSVector), axis=0)
+# padVector = np.zeros((1, wordVecDimensions), dtype='int32')
+# EOSVector = np.ones((1, wordVecDimensions), dtype='int32')
+# wordVectors = np.concatenate((wordVectors,padVector), axis=0)
+# wordVectors = np.concatenate((wordVectors,EOSVector), axis=0)
 
 # Need to modify the word list as well
 wordList.append('<pad>')
 wordList.append('<EOS>')
 vocabSize = vocabSize + 2
+print('Total Vocabulary: ',vocabSize)
 
 if (os.path.isfile('Seq2SeqXTrain.npy') and os.path.isfile('Seq2SeqYTrain.npy')):
     xTrain = np.load('Seq2SeqXTrain.npy')
