@@ -37,14 +37,14 @@ def createTrainingMatrices(conversationFileName, wList, maxLen):
             except ValueError:
                 # TODO: This isnt really the right way to handle this scenario
                 encoderMessage[keyIndex] = 0
-        encoderMessage[keyIndex + 1] = wList.index('<EOS>')
+        encoderMessage[keyCount] = wList.index('<EOS>')
         # Integerize the decoder string
         for valueIndex, word in enumerate(valueSplit):
             try:
                 decoderMessage[valueIndex] = wList.index(word)
             except ValueError:
                 decoderMessage[valueIndex] = 0
-        decoderMessage[valueIndex + 1] = wList.index('<EOS>')
+        decoderMessage[valueCount] = wList.index('<EOS>')
         xTrain[index] = encoderMessage
         yTrain[index] = decoderMessage
     # Remove rows with all zeros
