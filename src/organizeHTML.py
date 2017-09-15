@@ -92,3 +92,8 @@ with open('./data/qa.txt', 'w') as fp:
     for q,a in qa_pair:
         out_text += "{}\t{}\t{}\t{}\n".format(q[0],q[1],a[0],a[1])
     fp.write(out_text)
+
+#
+print('Build Q&A dictionary')
+qa_dict = {q:a for (q_er,q),(a_er,a) in qa_pair}
+np.save('conversationDictionary.npy',qa_dict)
