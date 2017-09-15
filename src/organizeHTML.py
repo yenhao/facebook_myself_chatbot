@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
 import pickle
+import numpy as np
 
 # Reading messages
 data = "./data/messages.htm"
