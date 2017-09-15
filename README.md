@@ -2,6 +2,7 @@
 
 This work is reference from [this repo](https://github.com/adeshpande3/Facebook-Messenger-Bot), in this work, we modify it to be able to work on python3 and 中文(Chinese) user.
 
+
 ### How to download all your data from Facebook?
 
 Go to Facebook [setting page](https://www.facebook.com/settings), check **Download a copy** of your Facebook data to download all your Facebook data.
@@ -9,6 +10,8 @@ Go to Facebook [setting page](https://www.facebook.com/settings), check **Downlo
 After a while, Facebook will finish archive your data, you are able to downlaod it.
 
 The downlaoded file would be a html-like webpage files, go to html folder and copy the **message.htm** file to `./data/message.htm`
+
+**NOTICE** all the command above and below is in inside the `src` folder ^^
 
 ### Preprocess Data to Q&A type
 
