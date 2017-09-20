@@ -1,7 +1,7 @@
 <?php
 	$access_token = "YOUR ACCESS TOKEN";
-	
 	$verify_token = "YOUR VERIFY TOKEN";
+
 	$hub_verify_token = null;
 	if(isset($_REQUEST['hub_challenge'])) {
 	    $challenge = $_REQUEST['hub_challenge'];
@@ -14,11 +14,10 @@
 	$input = json_decode(file_get_contents('php://input'), true);
 	$sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 	$message = $input['entry'][0]['messaging'][0]['message']['text'];
-	// $message = $input['entry'][0]['messaging'][0]['message'];
 	$message_to_reply = '';
 	
 	$query_string = json_encode(array("user_text"=>$message));
-	$ch = curl_init('http://140.114.77.23:9364/chat');
+	$ch = curl_init('YOUR URL:9364/chat');
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $query_string);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -55,13 +54,4 @@
 	if(!empty($input['entry'][0]['messaging'][0]['message'])){
 	    $result = curl_exec($ch);
 	}
-
-
-
-?>
-
-
-
-
-
 ?>
