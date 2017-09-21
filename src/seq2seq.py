@@ -206,7 +206,7 @@ optimizer = tf.train.AdamOptimizer(1e-4).minimize(loss)
 
 sess = tf.Session()
 saver = tf.train.Saver()
-# If you're loading in a saved model, use the following
+# If you're loading in a saved model, use the following, and markup next next line
 #saver.restore(sess, tf.train.latest_checkpoint('models/'))
 sess.run(tf.global_variables_initializer())
 
